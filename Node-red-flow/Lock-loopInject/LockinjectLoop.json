@@ -1,0 +1,91 @@
+[
+    {
+        "id": "0e0bde014c5db1da",
+        "type": "inject",
+        "z": "1672fbb9b179fc6e",
+        "name": "Auto Inject 1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 320,
+        "wires": [
+            [
+                "f33633ca0481b7d6",
+                "a1b2c3d4e5f67890"
+            ]
+        ]
+    },
+    {
+        "id": "a1b2c3d4e5f67890",
+        "type": "delay",
+        "z": "1672fbb9b179fc6e",
+        "name": "Delay 100ms",
+        "pauseType": "delay",
+        "timeout": "100",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 420,
+        "y": 320,
+        "wires": [
+            [
+                "0e0bde014c5db1da"
+            ]
+        ]
+    },
+    {
+        "id": "f33633ca0481b7d6",
+        "type": "ads1x15-raspi",
+        "z": "1672fbb9b179fc6e",
+        "property": "payload",
+        "name": "",
+        "chip": "IC_ADS1115",
+        "i2c_address": "ADDRESS_0x49",
+        "channel": "CHANNEL_0",
+        "samplesPerSecond0": "SPS_920",
+        "samplesPerSecond1": "SPS_128",
+        "progGainAmp": "PGA_2_048V",
+        "x": 980,
+        "y": 320,
+        "wires": [
+            [
+                "ebc477361db16429"
+            ]
+        ]
+    },
+    {
+        "id": "ebc477361db16429",
+        "type": "debug",
+        "z": "1672fbb9b179fc6e",
+        "name": "debug 31",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1200,
+        "y": 320,
+        "wires": []
+    }
+]
